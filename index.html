@@ -48,6 +48,22 @@
     background-size:62px 62px;
     mask-image:radial-gradient(circle at 50% 42%,#000 0%,transparent 78%);
     -webkit-mask-image:radial-gradient(circle at 50% 42%,#000 0%,transparent 78%);}
+
+  /* тематические фоны разделов кабинета: тёмный градиент + сетка + крупный символ */
+  .scene{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+  .scene::before{content:"";position:absolute;inset:0;
+    background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);
+    background-size:54px 54px;opacity:.6;
+    mask-image:radial-gradient(circle at 50% 50%,#000 0%,transparent 80%);
+    -webkit-mask-image:radial-gradient(circle at 50% 50%,#000 0%,transparent 80%);}
+  .scene .glyph{position:absolute;bottom:14vh;right:8vw;font-size:clamp(120px,22vw,300px);line-height:1;
+    opacity:.16;filter:drop-shadow(0 0 40px rgba(45,225,252,.4))}
+  .scene.voice{background:radial-gradient(circle at 28% 26%,rgba(45,225,252,.22),transparent 55%),linear-gradient(155deg,#06121c,#01060e 70%,#000)}
+  .scene.gemini{background:radial-gradient(circle at 74% 30%,rgba(120,110,255,.24),transparent 55%),linear-gradient(150deg,#0b0a1e,#03030e 72%,#000)}
+  .scene.delivery{background:radial-gradient(circle at 30% 70%,rgba(10,132,255,.24),transparent 55%),linear-gradient(160deg,#070d1c,#02040c 72%,#000)}
+  .scene.holo{background:radial-gradient(circle at 70% 40%,rgba(45,225,252,.26),transparent 52%),radial-gradient(circle at 30% 80%,rgba(120,90,255,.18),transparent 55%),linear-gradient(150deg,#05101a,#02030c 72%,#000)}
+
   /* very light scrim only at top for text legibility, like the site */
   .veil{position:absolute;inset:0;z-index:1;
     background:linear-gradient(180deg,rgba(0,0,0,.40) 0%,rgba(0,0,0,.10) 26%,rgba(0,0,0,0) 50%)}
@@ -65,6 +81,11 @@
     text-shadow:0 2px 18px rgba(0,0,0,.85)}
   .cap p{font-size:clamp(15px,1.7vw,21px);font-weight:400;color:#eef1f4;max-width:820px;margin:18px auto 0;
     line-height:1.5;text-shadow:0 2px 14px rgba(0,0,0,.9)}
+
+  /* вариант: плашка справа, текст по правому краю */
+  .cap.right{left:auto;right:5vw;transform:translate(0,-16px);text-align:right;width:min(50%,560px)}
+  .slide.in .cap.right{transform:translate(0,0)}
+  .cap.right p{margin-left:auto;margin-right:0}
 
   /* hero: big centered title, still light weight */
   .hero{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;
@@ -97,6 +118,8 @@
   @media(max-width:760px){
     .brand{left:16px}.dots{right:12px}
     .cap{top:7vh;padding:22px 22px}.chips{bottom:6vh;gap:20px;padding:16px 22px}
+    .cap.right{right:0;left:0;width:auto;text-align:center}
+    .cap.right p{margin-left:auto;margin-right:auto}
     .cap h2{font-size:30px}
   }
 </style>
@@ -150,7 +173,7 @@
   <div class="veil"></div>
   <div class="cap">
     <div class="eye">Embodied Intelligence · AI + Robot</div>
-    <h2>Робот-собака</h2>
+    <h2>Искусственный интеллект</h2>
     <p>Благодаря масштабному ИИ-обучению робот осваивает сложные походки, переворот и преодоление препятствий — гибкость и устойчивость одновременно.</p>
   </div>
 </section>
@@ -213,7 +236,7 @@
 <!-- 7 SMART ROOM -->
 <section class="slide">
   <div class="media">
-    <img src="https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=2670&auto=format&fit=crop" alt="">
+    <img src="https://english.nudt.edu.cn/images/2024-01/fb68bd60e0c14cd1ae9f77cca89dcff8.jpeg" alt="">
   </div>
   <div class="veil full"></div>
   <div class="cap">
@@ -226,7 +249,7 @@
 <!-- 8 AI GEMINI LAB -->
 <section class="slide">
   <div class="media">
-    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2665&auto=format&fit=crop" alt="">
+    <img src="https://english.nudt.edu.cn/images/2024-01/656d9fedf87948b388c80e2a1e703550.jpeg" alt="">
   </div>
   <div class="veil full"></div>
   <div class="cap">
@@ -239,7 +262,7 @@
 <!-- 9 DELIVERY ROBOT -->
 <section class="slide">
   <div class="media">
-    <img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?q=80&w=2670&auto=format&fit=crop" alt="">
+    <img src="https://s0.rbk.ru/v6_top_pics/media/img/8/19/347080755599198.jpeg" alt="">
   </div>
   <div class="veil full"></div>
   <div class="cap">
@@ -265,10 +288,10 @@
 <!-- 11 HOLOGRAM AI -->
 <section class="slide">
   <div class="media">
-    <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=2665&auto=format&fit=crop" alt="">
+    <img src="https://www.holoconnects.com/wp-content/uploads/2024/11/AI-Hologram-2.jpg" alt="">
   </div>
   <div class="veil full"></div>
-  <div class="cap">
+  <div class="cap right">
     <div class="eye">3D Holographic Display</div>
     <h2>Голограмма с AI-ассистентом</h2>
     <p>Парящий в воздухе ИИ-ассистент отвечает на вопросы и показывает объёмные 3D-модели — молекулы, механизмы, анатомию. Видно всему классу без очков.</p>
