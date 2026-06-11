@@ -105,7 +105,8 @@
 
 <div class="brand">STEM <b>SOLUTIONS</b></div>
 <nav class="dots" id="dots">
-  <a class="active"></a><a></a><a></a><a></a><a></a><a></a><a></a>
+  <a class="active"></a><a></a><a></a><a></a><a></a><a></a>
+  <a></a><a></a><a></a><a></a><a></a><a></a>
 </nav>
 <div class="scrollcue">Scroll ↓</div>
 
@@ -209,14 +210,74 @@
   </div>
 </section>
 
-<!-- 6 CLOSING -->
+<!-- 7 SMART ROOM -->
 <section class="slide">
   <div class="media">
-    <video autoplay muted loop playsinline poster="https://www.unitree.com/images/b5fffd3e4fc04e6f9fcafedb9516b341_3840x2146.jpg">
-      <source src="https://oss-global-cdn.unitree.com/static/b666bad5b37742cb940f210eb097ac37.mp4" type="video/mp4">
-    </video>
+    <img src="https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=2670&auto=format&fit=crop" alt="">
   </div>
   <div class="veil full"></div>
+  <div class="cap">
+    <div class="eye">Voice Control</div>
+    <h2>Умная комната</h2>
+    <p>Управление пространством голосом: свет, климат, экраны и оборудование откликаются на команды. Класс превращается в живую демонстрацию интернета вещей.</p>
+  </div>
+</section>
+
+<!-- 8 AI GEMINI LAB -->
+<section class="slide">
+  <div class="media">
+    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2665&auto=format&fit=crop" alt="">
+  </div>
+  <div class="veil full"></div>
+  <div class="cap">
+    <div class="eye">AI Laboratory</div>
+    <h2>Лаборатория AI Gemini</h2>
+    <p>Площадка для работы с нейросетями: ученики ставят задачи, обучают модели и создают проекты с искусственным интеллектом на практике.</p>
+  </div>
+</section>
+
+<!-- 9 DELIVERY ROBOT -->
+<section class="slide">
+  <div class="media">
+    <img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?q=80&w=2670&auto=format&fit=crop" alt="">
+  </div>
+  <div class="veil full"></div>
+  <div class="cap">
+    <div class="eye">Humanoid &amp; Delivery Robots</div>
+    <h2>Гуманоиды и робот-доставщик</h2>
+    <p>Человекоподобные роботы и автономный доставщик показывают, как машины перемещаются, ориентируются в пространстве и помогают людям в реальных сценариях.</p>
+  </div>
+</section>
+
+<!-- 10 MEETING ROOM -->
+<section class="slide">
+  <div class="media">
+    <img src="https://www.prodectech.com/template/default/images/phone-booth-office-meeting-pod.webp" alt="">
+  </div>
+  <div class="veil full"></div>
+  <div class="cap">
+    <div class="eye">Acoustic Meeting Pods</div>
+    <h2>Переговорки</h2>
+    <p>Звукоизолированные капсулы Prodec на 1–6 человек: тихое приватное пространство для звонков, видеовстреч и совместной работы. Класс получает зоны фокуса без лишнего шума.</p>
+  </div>
+</section>
+
+<!-- 11 HOLOGRAM AI -->
+<section class="slide">
+  <div class="media">
+    <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=2665&auto=format&fit=crop" alt="">
+  </div>
+  <div class="veil full"></div>
+  <div class="cap">
+    <div class="eye">3D Holographic Display</div>
+    <h2>Голограмма с AI-ассистентом</h2>
+    <p>Парящий в воздухе ИИ-ассистент отвечает на вопросы и показывает объёмные 3D-модели — молекулы, механизмы, анатомию. Видно всему классу без очков.</p>
+  </div>
+</section>
+
+<!-- 12 CLOSING -->
+<section class="slide">
+  <div class="media hero-bg"></div>
   <div class="hero">
     <div class="eye">Кабинет искусственного интеллекта · под ключ</div>
     <h1>STEM<br>SOLUTIONS</h1>
@@ -246,9 +307,24 @@
   // fallback to poster image if a video fails to load
   document.querySelectorAll('video').forEach(v=>{
     const swap=()=>{const p=v.getAttribute('poster');
-      if(p){const img=new Image();img.src=p;img.style.cssText='width:100%;height:100%;object-fit:cover;display:block';v.replaceWith(img);}};
+      if(p){const img=new Image();img.src=p;img.style.cssText='width:100%;height:100%;object-fit:cover;display:block';
+        img.onerror=()=>gradient(img.parentElement||v.parentElement);v.replaceWith(img);}};
     v.addEventListener('error',swap);
     const s=v.querySelector('source'); if(s)s.addEventListener('error',swap);
+  });
+
+  // fallback gradient for background images that fail to load
+  const grads=[
+    'radial-gradient(circle at 30% 20%,rgba(45,225,252,.20),transparent 55%),linear-gradient(160deg,#06121c,#01060e 70%,#000)',
+    'radial-gradient(circle at 75% 30%,rgba(10,132,255,.22),transparent 55%),linear-gradient(150deg,#0a0e1c,#03040c 70%,#000)',
+    'radial-gradient(circle at 50% 80%,rgba(45,225,252,.16),transparent 55%),linear-gradient(200deg,#0b0f16,#02030a 70%,#000)',
+    'radial-gradient(circle at 20% 60%,rgba(120,90,255,.18),transparent 55%),linear-gradient(160deg,#0c0a1a,#03020c 70%,#000)',
+    'radial-gradient(circle at 80% 70%,rgba(45,225,252,.20),transparent 55%),linear-gradient(140deg,#06141a,#02050d 70%,#000)'
+  ];
+  let gi=0;
+  function gradient(el){if(!el)return;el.style.background=grads[gi%grads.length];gi++;}
+  document.querySelectorAll('.media img').forEach(img=>{
+    img.addEventListener('error',()=>{const wrap=img.closest('.media');gradient(wrap);img.remove();});
   });
 </script>
 </body>
